@@ -1,134 +1,236 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Admin Dashboard</title>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Login & Registration Form</title>
     <style>
-      /* Cards */
-      .card {
-        display: inline-block;
-        width: 44%;
-        margin: 1%;
-        padding: 20px;
-        color: white;
-        border-radius: 5px;
-        position: relative;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        min-height: 100vh;
+        width: 100%;
+        background: #3498db;
+      }
+      .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 430px;
+        width: 100%;
+        background: #fff;
+        border-radius: 7px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+      }
+      .container .registration {
+        display: none;
+      }
+      #check:checked ~ .registration {
+        display: block;
+      }
+      #check:checked ~ .login {
+        display: none;
+      }
+      #check {
+        display: none;
+      }
+      .container .form {
+        padding: 2rem;
+      }
+      .form header {
+        font-size: 2rem;
+        font-weight: 500;
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+      .form input {
+        height: 60px;
+        width: 100%;
+        padding: 0 15px;
+        font-size: 17px;
+        margin-bottom: 1.3rem;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        outline: none;
+      }
+      .form input:focus {
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+      }
+      .form a {
+        font-size: 16px;
+        color: #3498db;
         text-decoration: none;
       }
-
-      .card .number {
-        font-size: 36px;
-        font-weight: bold;
+      .form a:hover {
+        text-decoration: underline;
       }
-
-      .card .title {
-        font-size: 18px;
-        margin-top: 10px;
+      .form input.button {
+        color: #fff;
+        background: #337ab7;
+        font-size: 1.2rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+        margin-top: 1.7rem;
+        cursor: pointer;
+        transition: 0.4s;
       }
-
-      .card .more {
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-        font-size: 14px;
+      .form input.button:hover {
+        background: #3498db;
       }
-
-      .card.blue {
-        background-color: #1e90ff;
+      .signup {
+        font-size: 17px;
+        text-align: center;
       }
-      .card.green {
-        background-color: #28a745;
+      .signup label {
+        color: #3498db;
+        cursor: pointer;
       }
-      .card.orange {
-        background-color: #ff9800;
-      }
-      .card.red {
-        background-color: #f44336;
+      .signup label:hover {
+        text-decoration: underline;
       }
     </style>
   </head>
   <body>
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <div class="sidebar-header">Quản Lý SV</div>
-      <ul class="sidebar-menu">
-        <li class="active">
-          <a href="index.html"><i class="fas fa-home"></i>Trang chủ</a>
-        </li>
-        <li>
-          <a href="lop.html"><i class="fas fa-th-large"></i>Lớp</a>
-        </li>
-        <li>
-          <a href="dsSinhVien.html"
-            ><i class="fas fa-user-graduate"></i>Sinh viên</a
-          >
-        </li>
-        <li>
-          <a href="dsSinhVien.html"
-            ><i class="fas fa-user-graduate"></i>Danh sách sinh viên</a
-          >
-        </li>
-        <li>
-          <a href="dsMonHoc.html"><i class="fas fa-book"></i>Quản lý môn học</a>
-        </li>
-        <li>
-          <a href="dsDiem.html"
-            ><i class="fas fa-graduation-cap"></i>Quản lý điểm</a
-          >
-        </li>
-        <li>
-          <a href="dsVaiTro.html"
-            ><i class="fas fa-users"></i>Danh sách vai trò</a
-          >
-        </li>
-        <li>
-          <a href="capNhat.html"
-            ><i class="fas fa-user-tag"></i>Cập nhật vai trò</a
-          >
-        </li>
-        <li class="logout-item">
-          <a href="login.html" class="logout-link">
-            <i class="fas fa-sign-out-alt"></i>Đăng xuất
-          </a>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Header -->
-    <div class="header">
-      <i class="fas fa-bars menu-icon"></i>
-      <h1>Trang Chủ</h1>
-    </div>
-
-    <!-- Main content -->
     <div class="container">
-      <a href="dsKhoa.html" class="card blue">
-        <div class="number">1</div>
-        <div class="title">Khoa</div>
-        <div class="more">Xem thêm <i class="fas fa-arrow-right"></i></div>
-      </a>
-      <a href="lop.html" class="card green">
-        <div class="number">2</div>
-        <div class="title">Lớp</div>
-        <div class="more">Xem thêm <i class="fas fa-arrow-right"></i></div>
-      </a>
-      <a href="dsSinhVien.html" class="card orange">
-        <div class="number">3</div>
-        <div class="title">Sinh viên</div>
-        <div class="more">Xem thêm <i class="fas fa-arrow-right"></i></div>
-      </a>
-      <a href="dsMonHoc.html" class="card red">
-        <div class="number">4</div>
-        <div class="title">Môn học</div>
-        <div class="more">Xem thêm <i class="fas fa-arrow-right"></i></div>
-      </a>
+      <input type="checkbox" id="check" />
+      <div class="login form">
+        <header>Login</header>
+        <form id="loginForm" onsubmit="return validateLogin()">
+          <input
+            type="text"
+            id="loginEmail"
+            placeholder="Điền email của bạn"
+            required
+          />
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Điền mật khẩu của bạn"
+            required
+          />
+          <a href="#">Quên mật khẩu?</a>
+          <input type="submit" class="button" value="Login" />
+        </form>
+        <div class="signup">
+          <span class="signup"
+            >Don't have an account? <label for="check">Signup</label></span
+          >
+        </div>
+      </div>
+      <div class="registration form">
+        <header>Signup</header>
+        <form id="signupForm" onsubmit="return validateSignup()">
+          <input
+            type="text"
+            id="signupEmail"
+            placeholder="Điền tài khoản của bạn"
+            required
+          />
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Mật khẩu mới"
+            required
+          />
+          <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Xác nhận mật khẩu"
+            required
+          />
+          <input type="submit" class="button" value="Signup" />
+        </form>
+        <div class="signup">
+          <span class="signup"
+            >Already have an account? <label for="check">Login</label></span
+          >
+        </div>
+      </div>
     </div>
 
-    <script src="assets/js/script.js"></script>
+    <script>
+      function validateLogin() {
+        const email = document.getElementById("loginEmail").value;
+        const password = document.getElementById("loginPassword").value;
+
+        // Thực hiện kiểm tra email và mật khẩu ở đây
+        if (!email || !password) {
+          alert("Vui lòng điền đầy đủ thông tin!");
+          return false;
+        }
+        // Gửi dữ liệu đến server
+        alert("Đăng nhập thành công!");
+        return false; // Chặn hành động gửi form để xem thông báo
+      }
+
+      function validateSignup() {
+        const email = document.getElementById("signupEmail").value;
+        const password = document.getElementById("signupPassword").value;
+        const confirmPassword =
+          document.getElementById("confirmPassword").value;
+
+        if (!email || !password || !confirmPassword) {
+          alert("Vui lòng điền đầy đủ thông tin!");
+          return false;
+        }
+        if (password !== confirmPassword) {
+          alert("Mật khẩu không khớp!");
+          return false;
+        }
+        // Gửi dữ liệu đến server
+        alert("Đăng ký thành công!");
+        return false; // Chặn hành động gửi form để xem thông báo
+      }
+      // Định nghĩa thông tin đăng nhập của admin
+      const adminEmail = "admin"; // Thay thế bằng email admin của bạn
+      const adminPassword = "123"; // Thay thế bằng mật khẩu admin của bạn
+
+      function validateLogin() {
+        const email = document.getElementById("loginEmail").value;
+        const password = document.getElementById("loginPassword").value;
+
+        // Kiểm tra xem email và mật khẩu đã được điền đầy đủ chưa
+        if (!email || !password) {
+          alert("Vui lòng điền đầy đủ thông tin!");
+          return false;
+        }
+
+        // Kiểm tra thông tin đăng nhập với thông tin của admin
+        if (email === adminEmail && password === adminPassword) {
+          alert("Đăng nhập thành công!");
+          // Chuyển hướng đến file trangChu.html
+          window.location.href = "trangChu.html"; // Đường dẫn đến file trangChu
+          return false; // Ngăn chặn việc gửi form
+        } else {
+          alert("Email hoặc mật khẩu không đúng!");
+          return false; // Ngăn chặn việc gửi form
+        }
+      }
+
+      function validateSignup() {
+        const email = document.getElementById("signupEmail").value;
+        const password = document.getElementById("signupPassword").value;
+        const confirmPassword =
+          document.getElementById("confirmPassword").value;
+
+        if (!email || !password || !confirmPassword) {
+          alert("Vui lòng điền đầy đủ thông tin!");
+          return false;
+        }
+        if (password !== confirmPassword) {
+          alert("Mật khẩu không khớp!");
+          return false;
+        }
+        // Gửi dữ liệu đến server
+        alert("Đăng ký thành công!");
+        return false; // Ngăn chặn việc gửi form để xem thông báo
+      }
+    </script>
   </body>
 </html>

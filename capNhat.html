@@ -105,7 +105,7 @@
       <div class="sidebar-header">Quản Lý SV</div>
       <ul class="sidebar-menu">
         <li>
-          <a href="index.html"><i class="fas fa-home"></i>Trang chủ</a>
+          <a href="trangChu.html"><i class="fas fa-home"></i>Trang chủ</a>
         </li>
         <li>
           <a href="lop.html"><i class="fas fa-th-large"></i>Lớp</a>
@@ -139,7 +139,7 @@
           >
         </li>
         <li class="logout-item">
-          <a href="login.html" class="logout-link">
+          <a href="index.html" class="logout-link">
             <i class="fas fa-sign-out-alt"></i>Đăng xuất
           </a>
         </li>
@@ -339,6 +339,15 @@
     </div>
 
     <script>
+      // Button log out
+      document
+        .querySelector(".logout-link")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          if (confirm("Bạn có chắc chắn muốn đăng xuất?")) {
+            window.location.href = "index.html";
+          }
+        });
       document.addEventListener("DOMContentLoaded", function () {
         const sideBar = document.querySelector(".sidebar");
         const menuIcon = document.querySelector(".menu-icon");
