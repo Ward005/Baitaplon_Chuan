@@ -78,17 +78,17 @@
         letter-spacing: 1px;
         margin-top: 1.7rem;
         cursor: pointer;
-        transition: 0.4s;
+        transition: 0.3s;
       }
       .form input.button:hover {
-        background: #3498db;
+        background: #006cdfb9;
       }
       .signup {
         font-size: 17px;
         text-align: center;
       }
       .signup label {
-        color: #3498db;
+        color: #007bff;
         cursor: pointer;
       }
       .signup label:hover {
@@ -100,26 +100,26 @@
     <div class="container">
       <input type="checkbox" id="check" />
       <div class="login form">
-        <header>Login</header>
+        <header>Đăng nhập</header>
         <form id="loginForm" onsubmit="return validateLogin()">
           <input
             type="text"
             id="loginEmail"
-            placeholder="Điền email của bạn"
+            placeholder="Tên đăng nhập"
             required
           />
           <input
             type="password"
             id="loginPassword"
-            placeholder="Điền mật khẩu của bạn"
+            placeholder="Mật khẩu"
             required
           />
-          <a href="#">Quên mật khẩu?</a>
+          <a href="#" onclick="canhBao()">Quên mật khẩu?</a>
           <input type="submit" class="button" value="Login" />
         </form>
         <div class="signup">
           <span class="signup"
-            >Don't have an account? <label for="check">Signup</label></span
+            >Don't have an account? <label for="check">Đăng ký</label></span
           >
         </div>
       </div>
@@ -155,6 +155,10 @@
     </div>
 
     <script>
+      function canhBao() {
+        alert("Tính năng đang được phát triển vui lòng thử lại sau !");
+      }
+
       function validateLogin() {
         const email = document.getElementById("loginEmail").value;
         const password = document.getElementById("loginPassword").value;
@@ -208,7 +212,7 @@
           window.location.href = "trangChu.html"; // Đường dẫn đến file trangChu
           return false; // Ngăn chặn việc gửi form
         } else {
-          alert("Email hoặc mật khẩu không đúng!");
+          alert("Tài khoản hoặc mật khẩu không đúng!");
           return false; // Ngăn chặn việc gửi form
         }
       }
