@@ -7,89 +7,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-      }
-
-      /* Sidebar styles */
-      .sidebar {
-        height: 100vh;
-        width: 250px;
-        background-color: #2c3e50;
-        color: #ecf0f1;
-        position: fixed;
-        left: -250px;
-        top: 0;
-        transition: left 0.5s;
-        z-index: 1000;
-      }
-      .sidebar.Mo {
-        left: 0;
-      }
-      .sidebar-header {
-        background-color: #3498db;
-        padding: 20px;
-        text-align: center;
-        font-size: 20px;
-        font-weight: bold;
-      }
-      .sidebar-menu {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-      }
-      .sidebar-menu li {
-        padding: 15px 20px;
-        cursor: pointer;
-      }
-      .sidebar-menu li:hover {
-        background-color: #34495e;
-      }
-      .sidebar-menu li a {
-        color: #ecf0f1;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-      }
-      .sidebar-menu li a i {
-        margin-right: 10px;
-      }
-      .sidebar-menu li.active {
-        background-color: #34495e;
-      }
-      /* Header styles */
-      .header {
-        background-color: #337ab7;
-        color: white;
-        padding: 10px 20px;
-        display: flex;
-        align-items: center;
-        transition: margin-left 0.5s;
-      }
-      .header .menu-icon {
-        font-size: 24px;
-        cursor: pointer;
-        margin-right: 20px;
-      }
-
-      /* Main content styles */
-      .container {
-        padding: 20px;
-        transition: margin-left 0.5s;
-        background-color: #fff;
-        margin: 20px;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
-      .sidebar.Mo ~ .container,
-      .sidebar.Mo ~ .header {
-        margin-left: 250px;
-      }
-
       /* Table styles */
       table {
         width: 100%;
@@ -138,13 +57,12 @@
           <a href="index.html"><i class="fas fa-home"></i>Trang chủ</a>
         </li>
         <li>
-          <a href="dsKhoa.html"><i class="fas fa-university"></i>Khoa</a>
-        </li>
-        <li>
           <a href="lop.html"><i class="fas fa-th-large"></i>Lớp</a>
         </li>
         <li>
-          <a href="sinhVien.html"><i class="fas fa-user-graduate"></i>Sinh viên</a>
+          <a href="sinhVien.html"
+            ><i class="fas fa-user-graduate"></i>Sinh viên</a
+          >
         </li>
         <li>
           <a href="dsSinhVien.html"
@@ -152,7 +70,9 @@
           >
         </li>
         <li>
-          <a href="dsMonHoc.html"><i class="fas fa-folder"></i>Quản lý môn học</a>
+          <a href="dsMonHoc.html"
+            ><i class="fas fa-folder"></i>Quản lý môn học</a
+          >
         </li>
         <li>
           <a href="dsDiem.html"><i class="fas fa-folder"></i>Quản lý điểm</a>
@@ -166,6 +86,11 @@
           <a href="capNhat.html"
             ><i class="fas fa-user-tag"></i>Cập nhật vai trò</a
           >
+        </li>
+        <li class="logout-item">
+          <a href="login.html" class="logout-link">
+            <i class="fas fa-sign-out-alt"></i>Đăng xuất
+          </a>
         </li>
       </ul>
     </div>
@@ -196,6 +121,15 @@
     </div>
 
     <script>
+      // Button log out
+      document
+        .querySelector(".logout-link")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          if (confirm("Bạn có chắc chắn muốn đăng xuất?")) {
+            window.location.href = "login.html";
+          }
+        });
       document.addEventListener("DOMContentLoaded", function () {
         // Elements
         const sideBar = document.querySelector(".sidebar");

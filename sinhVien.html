@@ -13,90 +13,8 @@
       href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
     />
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link rel="stylesheet" href="assets/css/style.css" />
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-        display: flex;
-      }
-
-      .sidebar {
-        height: 100vh;
-        width: 250px;
-        background-color: #2c3e50;
-        color: #ecf0f1;
-        position: fixed;
-        left: -250px;
-        top: 0;
-        transition: left 0.5s;
-        z-index: 1000;
-      }
-      .sidebar.Mo {
-        left: 0;
-      }
-      .sidebar-header {
-        background-color: #3498db;
-        padding: 20px;
-        text-align: center;
-        font-size: 20px;
-        font-weight: bold;
-      }
-      .sidebar-menu {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-      }
-      .sidebar-menu li {
-        padding: 15px 20px;
-        cursor: pointer;
-      }
-      .sidebar-menu li:hover {
-        background-color: #34495e;
-      }
-      .sidebar-menu li a {
-        color: #ecf0f1;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-      }
-      .sidebar-menu li a i {
-        margin-right: 10px;
-      }
-      .sidebar-menu li.active {
-        background-color: #34495e;
-      }
-
-      .header {
-        background-color: #337ab7;
-        color: white;
-        padding: 10px 20px;
-        display: flex;
-        align-items: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 999;
-        transition: margin-left 0.5s;
-      }
-      .header .menu-icon {
-        font-size: 24px;
-        cursor: pointer;
-        margin-right: 20px;
-      }
-
-      .main-content {
-        flex: 1;
-        padding: 100px 20px 20px;
-        margin-left: 0;
-        transition: margin-left 0.5s;
-      }
-      .sidebar.Mo ~ .main-content {
-        margin-left: 250px;
-      }
-
       .container {
         max-width: 1000px;
         margin: 0 auto;
@@ -179,9 +97,6 @@
           <a href="index.html"><i class="fas fa-home"></i>Trang chủ</a>
         </li>
         <li>
-          <a href="dsKhoa.html"><i class="fas fa-university"></i>Khoa</a>
-        </li>
-        <li>
           <a href="lop.html"><i class="fas fa-th-large"></i>Lớp</a>
         </li>
         <li class="active">
@@ -195,10 +110,10 @@
           >
         </li>
         <li>
-          <a href="#"><i class="fas fa-book"></i>Quản lý môn học</a>
+          <a href="dsMonHoc.html"><i class="fas fa-book"></i>Quản lý môn học</a>
         </li>
         <li>
-          <a href="#"><i class="fas fa-chart-bar"></i>Quản lý điểm</a>
+          <a href="dsDiem.html"><i class="fas fa-chart-bar"></i>Quản lý điểm</a>
         </li>
         <li>
           <a href="dsVaiTro.html"
@@ -209,6 +124,11 @@
           <a href="capNhat.html"
             ><i class="fas fa-user-tag"></i>Cập nhật vai trò</a
           >
+        </li>
+        <li class="logout-item">
+          <a href="login.html" class="logout-link">
+            <i class="fas fa-sign-out-alt"></i>Đăng xuất
+          </a>
         </li>
       </ul>
     </div>
@@ -309,6 +229,15 @@
     </div>
 
     <script>
+      // Button log out
+      document
+        .querySelector(".logout-link")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          if (confirm("Bạn có chắc chắn muốn đăng xuất?")) {
+            window.location.href = "login.html";
+          }
+        });
       document.addEventListener("DOMContentLoaded", function () {
         // Initialize variables
         const form = document.getElementById("student-form");
