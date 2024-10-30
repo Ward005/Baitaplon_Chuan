@@ -117,8 +117,7 @@ body {
   padding: 20px;
   transition: margin-left 0.5s;
 }
-
-.sidebar.Mo ~ .container,
+z .sidebar.Mo ~ .container,
 .sidebar.Mo ~ .header {
   margin-left: 250px;
 }

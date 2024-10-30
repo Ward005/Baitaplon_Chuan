@@ -9,7 +9,13 @@
     />
     <link rel="stylesheet" href="assets/css/style.css" />
     <style>
-      /* Cards */
+      /* Container Styles */
+      .container {
+        padding: 20px;
+        transition: margin-left 0.5s;
+      }
+
+      /* Card Styles */
       .card {
         display: inline-block;
         width: 44%;
@@ -19,6 +25,11 @@
         border-radius: 5px;
         position: relative;
         text-decoration: none;
+        transition: transform 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
       }
 
       .card .number {
@@ -50,6 +61,15 @@
       .card.red {
         background-color: #f44336;
       }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .card {
+          width: 90%;
+          margin: 10px auto;
+          display: block;
+        }
+      }
     </style>
   </head>
   <body>
@@ -58,13 +78,13 @@
       <div class="sidebar-header">Quản Lý SV</div>
       <ul class="sidebar-menu">
         <li class="active">
-          <a href="index.html"><i class="fas fa-home"></i>Trang chủ</a>
+          <a href="trangChu.html"><i class="fas fa-home"></i>Trang chủ</a>
         </li>
         <li>
           <a href="lop.html"><i class="fas fa-th-large"></i>Lớp</a>
         </li>
         <li>
-          <a href="dsSinhVien.html"
+          <a href="sinhVien.html"
             ><i class="fas fa-user-graduate"></i>Sinh viên</a
           >
         </li>
@@ -107,9 +127,9 @@
 
     <!-- Main content -->
     <div class="container">
-      <a href="dsKhoa.html" class="card blue">
+      <a href="dsDiem.html" class="card blue">
         <div class="number">1</div>
-        <div class="title">Khoa</div>
+        <div class="title">Điểm</div>
         <div class="more">Xem thêm <i class="fas fa-arrow-right"></i></div>
       </a>
       <a href="lop.html" class="card green">
@@ -129,6 +149,51 @@
       </a>
     </div>
 
-    <script src="assets/js/script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const sidebar = document.querySelector(".sidebar");
+        const menuIcon = document.querySelector(".menu-icon");
+        const container = document.querySelector(".container");
+        const header = document.querySelector(".header");
+
+        // Open sidebar by default
+        sidebar.classList.add("Mo");
+        container.style.marginLeft = "250px";
+        header.style.marginLeft = "250px";
+
+        // Toggle sidebar
+        menuIcon.addEventListener("click", function () {
+          sidebar.classList.toggle("Mo");
+          if (sidebar.classList.contains("Mo")) {
+            container.style.marginLeft = "250px";
+            header.style.marginLeft = "250px";
+          } else {
+            container.style.marginLeft = "0";
+            header.style.marginLeft = "0";
+          }
+        });
+
+        // Logout confirmation
+        const logoutLink = document.querySelector(".logout-link");
+        logoutLink.addEventListener("click", function (e) {
+          e.preventDefault();
+          if (confirm("Bạn có chắc chắn muốn đăng xuất?")) {
+            window.location.href = "index.html";
+          }
+        });
+
+        // Active menu item
+        const currentPage = window.location.pathname.split("/").pop();
+        const menuItems = document.querySelectorAll(".sidebar-menu li");
+        menuItems.forEach((item) => {
+          const link = item.querySelector("a");
+          if (link.getAttribute("href") === currentPage) {
+            item.classList.add("active");
+          } else {
+            item.classList.remove("active");
+          }
+        });
+      });
+    </script>
   </body>
 </html>
